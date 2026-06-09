@@ -313,6 +313,51 @@ div[class*="element-container"] {
 .tag-red    { background: rgba(239,68,68,0.15);  color: #FCA5A5; }
 .tag-blue   { background: rgba(96,165,250,0.15); color: #BFDBFE; }
 
+/* ── pH / 경도 경고 알림 카드 ── */
+.alert-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+}
+.alert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    background: rgba(251,191,36,0.07);
+    border: 1px solid rgba(251,191,36,0.25);
+    border-left: 3px solid #FBBF24;
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+}
+.alert-item.alert-high {
+    background: rgba(239,68,68,0.07);
+    border-color: rgba(239,68,68,0.25);
+    border-left-color: #EF4444;
+}
+.alert-item.alert-low {
+    background: rgba(139,92,246,0.07);
+    border-color: rgba(139,92,246,0.25);
+    border-left-color: #A78BFA;
+}
+.alert-icon {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+.alert-text strong {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #F0F8FF !important;
+    margin-bottom: 0.15rem;
+}
+.alert-text span {
+    font-size: 0.8rem;
+    color: #9BBFD0 !important;
+    line-height: 1.5;
+}
+
 /* 빈 화면 가이드 */
 .guide-card {
     background: rgba(14,165,201,0.05);
@@ -555,8 +600,49 @@ if predict_btn:
         </div>
         """, unsafe_allow_html=True)
 
-else:
-    # 첫 진입 가이드 카드
+    # ── pH / 경도 추가 경고 판정 ──
+    # pH 기준: 정상 6.5~8.5 / 주의 5.5~6.5 또는 8.5~9.5 / 위험 <5.5 또는 >9.5
+    ph_alerts = []
+    if ph < 5.5:
+        ph_alerts.append(("high", "🔴", "pH 심각하게 낮음 (강산성)", f"입력값 {ph:.1f} — 기준치(6.5)보다 훨씬 낮습니다. 강한 산성으로 배관 부식 및 인체 자극을 유발할 수 있어 즉각적인 중화 처리가 필요합니다."))
+    elif ph < 6.5:
+        ph_alerts.append(("low", "🟡", "pH 낮음 (약산성)", f"입력값 {ph:.1f} — 식수 기준(6.5~8.5)보다 낮습니다. 장기 음용 시 치아 부식 가능성이 있으며, 중화 필터 사용을 권장합니다."))
+    elif ph > 9.5:
+        ph_alerts.append(("high", "🔴", "pH 심각하게 높음 (강알칼리성)", f"입력값 {ph:.1f} — 기준치(8.5)를 크게 초과합니다. 강한 알칼리성으로 소화기 자극 및 미네랄 불균형을 유발할 수 있습니다."))
+    elif ph > 8.5:
+        ph_alerts.append(("low", "🟡", "pH 높음 (약알칼리성)", f"입력값 {ph:.1f} — 식수 기준(6.5~8.5)보다 높습니다. 쓴맛이 느껴질 수 있으며 장기 음용 시 주의가 필요합니다."))
+
+    # 경도 기준: 정상 60~200 / 연수 <60 / 경수 200~400 / 과경수 >400
+    hard_alerts = []
+    if hardness < 30:
+        hard_alerts.append(("low", "🟣", "경도 매우 낮음 (극연수)", f"입력값 {hardness:.0f} mg/L — 미네랄이 거의 없는 증류수에 가까운 상태입니다. 장기 음용 시 칼슘·마그네슘 부족으로 이어질 수 있습니다."))
+    elif hardness < 60:
+        hard_alerts.append(("low", "🟡", "경도 낮음 (연수)", f"입력값 {hardness:.0f} mg/L — 미네랄 함량이 적은 연수입니다. 음용에는 문제없으나 뼈 건강을 위해 식이 미네랄 보충을 권장합니다."))
+    elif hardness > 400:
+        hard_alerts.append(("high", "🔴", "경도 매우 높음 (과경수)", f"입력값 {hardness:.0f} mg/L — 칼슘·마그네슘이 지나치게 많습니다. 배관 스케일이 심하게 쌓이고 쓴맛·텁텁한 맛이 강하게 납니다. 연수기 또는 이온교환 필터가 필요합니다."))
+    elif hardness > 200:
+        hard_alerts.append(("low", "🟡", "경도 높음 (경수)", f"입력값 {hardness:.0f} mg/L — 미네랄 함량이 높은 경수입니다. 음용은 가능하나 보일러·커피머신 등 기기에 물때가 쌓일 수 있습니다."))
+
+    all_alerts = ph_alerts + hard_alerts
+
+    if all_alerts:
+        st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
+        st.markdown("#### 추가 항목별 진단")
+        alert_html = '<div class="alert-row">'
+        for level, icon, title, desc in all_alerts:
+            css_class = f"alert-item alert-{'high' if level == 'high' else 'low'}"
+            alert_html += f"""
+            <div class="{css_class}">
+                <span class="alert-icon">{icon}</span>
+                <div class="alert-text">
+                    <strong>{title}</strong>
+                    <span>{desc}</span>
+                </div>
+            </div>"""
+        alert_html += '</div>'
+        st.markdown(alert_html, unsafe_allow_html=True)
+
+
     st.markdown("""
     <div class="guide-card">
         <div class="guide-icon">🔬</div>
