@@ -20,20 +20,73 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
 
-/* ── 전체 배경 ── */
-html, body, [data-testid="stAppViewContainer"] {
-    background: #070F1C !important;
+/* ── 전체 배경 & 기본 텍스트 ── */
+html, body,
+[data-testid="stAppViewContainer"],
+[data-testid="stAppViewContainer"] > section,
+[data-testid="stMain"],
+[data-testid="stMainBlockContainer"],
+.main, .block-container,
+div[class*="block-container"],
+div[class*="stMarkdown"],
+div[class*="element-container"] {
+    background-color: #070F1C !important;
     color: #E2EEF4 !important;
     font-family: 'Inter', sans-serif !important;
 }
 
+/* 모든 p, span, div 텍스트 기본색 강제 */
+[data-testid="stAppViewContainer"] p,
+[data-testid="stAppViewContainer"] span,
+[data-testid="stAppViewContainer"] div,
+[data-testid="stAppViewContainer"] li,
+[data-testid="stAppViewContainer"] h1,
+[data-testid="stAppViewContainer"] h2,
+[data-testid="stAppViewContainer"] h3,
+[data-testid="stAppViewContainer"] h4,
+[data-testid="stAppViewContainer"] h5,
+[data-testid="stAppViewContainer"] label {
+    color: #E2EEF4 !important;
+}
+
+/* stMarkdown 내부 텍스트 */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] span,
+[data-testid="stMarkdownContainer"] strong,
+[data-testid="stMarkdownContainer"] em {
+    color: #E2EEF4 !important;
+}
+
+/* st.caption 텍스트 */
+[data-testid="stCaptionContainer"],
+[data-testid="stCaptionContainer"] p {
+    color: #7A9BB0 !important;
+}
+
+/* 섹션 헤더 (#### 등) */
+[data-testid="stHeadingWithActionElements"] h4,
+[data-testid="stHeadingWithActionElements"] h3,
+[data-testid="stHeadingWithActionElements"] h2 {
+    color: #E2EEF4 !important;
+}
+
 /* ── 사이드바 ── */
-[data-testid="stSidebar"] {
+[data-testid="stSidebar"],
+[data-testid="stSidebar"] > div,
+[data-testid="stSidebarContent"] {
     background: linear-gradient(180deg, #0D1B2E 0%, #091525 100%) !important;
     border-right: 1px solid rgba(14,165,201,0.15) !important;
 }
-[data-testid="stSidebar"] * {
+[data-testid="stSidebar"] *,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] strong {
     color: #C8DDE9 !important;
+    background-color: transparent !important;
+}
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
+    color: #7A9BB0 !important;
 }
 
 /* 사이드바 헤더 */
@@ -288,14 +341,40 @@ html, body, [data-testid="stAppViewContainer"] {
 
 /* Streamlit 기본 요소 숨기기 / 오버라이드 */
 #MainMenu, footer, header { visibility: hidden; }
+
 [data-testid="stMetric"] {
     background: rgba(14,165,201,0.06) !important;
     border: 1px solid rgba(14,165,201,0.18) !important;
     border-radius: 14px !important;
     padding: 1rem 1.2rem !important;
 }
-[data-testid="stMetricLabel"] { color: #5B8FA0 !important; font-size: 0.75rem !important; text-transform: uppercase !important; letter-spacing: 0.08em !important; }
-[data-testid="stMetricValue"] { color: #E8F4FA !important; font-family: 'Syne', sans-serif !important; }
+[data-testid="stMetricLabel"],
+[data-testid="stMetricLabel"] p {
+    color: #7A9BB0 !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+}
+[data-testid="stMetricValue"],
+[data-testid="stMetricValue"] div {
+    color: #E8F4FA !important;
+    font-family: 'Syne', sans-serif !important;
+}
+[data-testid="stMetricDelta"],
+[data-testid="stMetricDelta"] div,
+[data-testid="stMetricDelta"] svg {
+    color: #22D3EE !important;
+}
+
+/* 숫자 입력 화살표 버튼 배경 */
+[data-testid="stNumberInput"] button {
+    background: rgba(14,165,201,0.1) !important;
+    border-color: rgba(14,165,201,0.2) !important;
+    color: #E2EEF4 !important;
+}
+[data-testid="stNumberInput"] button:hover {
+    background: rgba(14,165,201,0.25) !important;
+}
 
 /* 구분선 */
 hr { border-color: rgba(14,165,201,0.15) !important; }
