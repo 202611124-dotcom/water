@@ -48,59 +48,59 @@ html, body,
 }
 
 /* ═══════════════════════════════════════
-   SIDEBAR
+   SIDEBAR — 밝은 테마
 ═══════════════════════════════════════ */
 [data-testid="stSidebar"],
 [data-testid="stSidebar"] > div,
 [data-testid="stSidebarContent"] {
-    background: #111827 !important;
-    border-right: 1px solid #1F2937 !important;
+    background: #FFFFFF !important;
+    border-right: 1px solid #E5E7EB !important;
 }
 
-/* 사이드바 내 모든 텍스트 — 확실히 밝게 */
+/* 사이드바 내 모든 텍스트 — 어두운 색으로 */
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
 [data-testid="stSidebar"] div,
 [data-testid="stSidebar"] strong,
 [data-testid="stSidebar"] li {
-    color: #D1D5DB !important;
+    color: #111827 !important;
     background-color: transparent !important;
 }
 [data-testid="stSidebar"] label {
-    color: #D1D5DB !important;
+    color: #374151 !important;
     background-color: transparent !important;
 }
 [data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
-    color: #9CA3AF !important;
+    color: #6B7280 !important;
 }
 
 /* 사이드바 브랜드 */
 .sb-brand {
     padding: 1.8rem 0 1.4rem;
-    border-bottom: 1px solid #374151;
+    border-bottom: 1px solid #E5E7EB;
     margin-bottom: 1.4rem;
 }
 .sb-eyebrow {
     font-family: 'Inter', sans-serif;
     font-size: 0.72rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.01em;
     text-transform: none;
-    color: #93C5FD !important;
+    color: #2563EB !important;
     margin: 0 0 0.4rem;
 }
 .sb-title {
     font-family: 'Inter', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #F9FAFB !important;
+    color: #111827 !important;
     margin: 0;
     letter-spacing: -0.5px;
     line-height: 1.2;
 }
 .sb-desc {
     font-size: 0.82rem;
-    color: #D1D5DB !important;
+    color: #4B5563 !important;
     margin: 0.5rem 0 0;
     line-height: 1.6;
 }
@@ -112,24 +112,24 @@ html, body,
     font-weight: 600;
     letter-spacing: 0;
     text-transform: none;
-    color: #E5E7EB !important;
+    color: #111827 !important;
     margin: 1.2rem 0 0.7rem;
 }
 
 /* 입력 필드 */
 [data-testid="stNumberInput"] input {
-    background: #1F2937 !important;
-    border: 1px solid #374151 !important;
+    background: #F9FAFB !important;
+    border: 1px solid #D1D5DB !important;
     border-radius: 8px !important;
-    color: #F9FAFB !important;
+    color: #111827 !important;
     font-family: 'JetBrains Mono', monospace !important;
     font-size: 0.95rem !important;
     padding: 0.5rem 0.75rem !important;
     transition: border-color 0.15s;
 }
 [data-testid="stNumberInput"] input:focus {
-    border-color: #3B82F6 !important;
-    box-shadow: 0 0 0 3px rgba(59,130,246,0.15) !important;
+    border-color: #2563EB !important;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.12) !important;
     outline: none !important;
 }
 [data-testid="stNumberInput"] label {
@@ -138,16 +138,16 @@ html, body,
     font-weight: 500 !important;
     letter-spacing: 0 !important;
     text-transform: none !important;
-    color: #D1D5DB !important;
+    color: #374151 !important;
 }
 [data-testid="stNumberInput"] button {
-    background: #1F2937 !important;
-    border-color: #374151 !important;
-    color: #9CA3AF !important;
+    background: #F3F4F6 !important;
+    border-color: #D1D5DB !important;
+    color: #374151 !important;
 }
 [data-testid="stNumberInput"] button:hover {
-    background: #374151 !important;
-    color: #F9FAFB !important;
+    background: #E5E7EB !important;
+    color: #111827 !important;
 }
 
 /* 분석 버튼 */
@@ -516,7 +516,7 @@ html, body,
 ═══════════════════════════════════════ */
 #MainMenu, footer, header { visibility: hidden; }
 hr { border-color: #E5E7EB !important; }
-[data-testid="stSidebar"] hr { border-color: #1F2937 !important; }
+[data-testid="stSidebar"] hr { border-color: #E5E7EB !important; }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #F7F9FC; }
 ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
