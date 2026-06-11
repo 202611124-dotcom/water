@@ -67,11 +67,11 @@ html, body,
     background-color: transparent !important;
 }
 [data-testid="stSidebar"] label {
-    color: #9CA3AF !important;
+    color: #D1D5DB !important;
     background-color: transparent !important;
 }
 [data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
-    color: #4B5563 !important;
+    color: #9CA3AF !important;
 }
 
 /* 사이드바 브랜드 */
@@ -99,7 +99,7 @@ html, body,
 }
 .sb-desc {
     font-size: 0.78rem;
-    color: #6B7280 !important;
+    color: #9CA3AF !important;
     margin: 0.4rem 0 0;
     line-height: 1.5;
 }
@@ -110,7 +110,7 @@ html, body,
     font-size: 0.7rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #6B7280 !important;
+    color: #9CA3AF !important;
     margin: 1.2rem 0 0.7rem;
 }
 
