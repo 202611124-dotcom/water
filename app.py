@@ -14,28 +14,24 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-# 2. 글로벌 CSS 인젝션 (프리미엄 디자인)
+# 2. 글로벌 CSS — Lab White 컨셉
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
-/* ── 전체 배경 & 기본 텍스트 ── */
+/* ── 리셋 & 전체 배경 ── */
 html, body,
 [data-testid="stAppViewContainer"],
 [data-testid="stAppViewContainer"] > section,
 [data-testid="stMain"],
 [data-testid="stMainBlockContainer"],
-.main, .block-container,
-div[class*="block-container"],
-div[class*="stMarkdown"],
-div[class*="element-container"] {
-    background-color: #070F1C !important;
-    color: #E2EEF4 !important;
-    font-family: 'Inter', sans-serif !important;
+.main, .block-container {
+    background-color: #F2F5F8 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    color: #0B1929 !important;
 }
 
-/* 모든 p, span, div 텍스트 기본색 강제 */
 [data-testid="stAppViewContainer"] p,
 [data-testid="stAppViewContainer"] span,
 [data-testid="stAppViewContainer"] div,
@@ -44,396 +40,517 @@ div[class*="element-container"] {
 [data-testid="stAppViewContainer"] h2,
 [data-testid="stAppViewContainer"] h3,
 [data-testid="stAppViewContainer"] h4,
-[data-testid="stAppViewContainer"] h5,
 [data-testid="stAppViewContainer"] label {
-    color: #E2EEF4 !important;
+    color: #0B1929 !important;
 }
 
-/* stMarkdown 내부 텍스트 */
 [data-testid="stMarkdownContainer"] p,
 [data-testid="stMarkdownContainer"] span,
 [data-testid="stMarkdownContainer"] strong,
 [data-testid="stMarkdownContainer"] em {
-    color: #E2EEF4 !important;
-}
-
-/* st.caption 텍스트 */
-[data-testid="stCaptionContainer"],
-[data-testid="stCaptionContainer"] p {
-    color: #7A9BB0 !important;
-}
-
-/* 섹션 헤더 (#### 등) */
-[data-testid="stHeadingWithActionElements"] h4,
-[data-testid="stHeadingWithActionElements"] h3,
-[data-testid="stHeadingWithActionElements"] h2 {
-    color: #E2EEF4 !important;
+    color: #0B1929 !important;
 }
 
 /* ── 사이드바 ── */
 [data-testid="stSidebar"],
 [data-testid="stSidebar"] > div,
 [data-testid="stSidebarContent"] {
-    background: linear-gradient(180deg, #0D1B2E 0%, #091525 100%) !important;
-    border-right: 1px solid rgba(14,165,201,0.15) !important;
+    background: #0B1929 !important;
+    border-right: none !important;
 }
+
 [data-testid="stSidebar"] *,
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
 [data-testid="stSidebar"] div,
-[data-testid="stSidebar"] strong {
-    color: #C8DDE9 !important;
+[data-testid="stSidebar"] strong,
+[data-testid="stSidebar"] label {
+    color: #C9D8E8 !important;
     background-color: transparent !important;
 }
+
 [data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
-    color: #7A9BB0 !important;
+    color: #4A6680 !important;
 }
 
-/* 사이드바 헤더 */
+/* 사이드바 브랜드 */
 .sidebar-brand {
-    text-align: center;
-    padding: 1.2rem 0 0.6rem;
+    padding: 2rem 0 1.6rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 1.6rem;
 }
-.sidebar-brand h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #22D3EE, #0EA5C9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -0.5px;
-    margin: 0;
-}
-.sidebar-brand p {
-    font-size: 0.75rem;
-    color: #5B8FA0 !important;
-    margin: 0.2rem 0 0;
-    letter-spacing: 0.08em;
+.sidebar-wordmark {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
+    color: #3A7BD5 !important;
+    margin: 0 0 0.5rem;
+}
+.sidebar-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #EAF1F8 !important;
+    margin: 0;
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+}
+.sidebar-subtitle {
+    font-size: 0.78rem;
+    color: #3A5A78 !important;
+    margin: 0.35rem 0 0;
+    line-height: 1.4;
+}
+
+/* 사이드바 구분 헤더 */
+.sidebar-section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #2A4A60 !important;
+    margin: 1.4rem 0 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.sidebar-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.07);
 }
 
 /* 입력 필드 */
 [data-testid="stNumberInput"] input {
-    background: rgba(14,165,201,0.07) !important;
-    border: 1px solid rgba(14,165,201,0.25) !important;
-    border-radius: 10px !important;
-    color: #E2EEF4 !important;
-    font-size: 0.95rem !important;
-    padding: 0.5rem 0.75rem !important;
-    transition: border-color 0.2s;
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    border-radius: 8px !important;
+    color: #EAF1F8 !important;
+    font-family: 'DM Mono', monospace !important;
+    font-size: 1rem !important;
+    padding: 0.55rem 0.8rem !important;
+    transition: border-color 0.15s, box-shadow 0.15s;
 }
 [data-testid="stNumberInput"] input:focus {
-    border-color: #22D3EE !important;
-    box-shadow: 0 0 0 3px rgba(34,211,238,0.15) !important;
+    border-color: #3A7BD5 !important;
+    box-shadow: 0 0 0 3px rgba(58,123,213,0.18) !important;
+    outline: none !important;
 }
-
-/* 레이블 */
-[data-testid="stNumberInput"] label,
-[data-testid="stSidebar"] label {
-    font-size: 0.8rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.04em !important;
-    color: #8DB4C4 !important;
+[data-testid="stNumberInput"] label {
+    font-family: 'DM Mono', monospace !important;
+    font-size: 0.68rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
+    color: #3A5A78 !important;
+}
+[data-testid="stNumberInput"] button {
+    background: rgba(255,255,255,0.05) !important;
+    border-color: rgba(255,255,255,0.08) !important;
+    color: #6A8FAA !important;
+}
+[data-testid="stNumberInput"] button:hover {
+    background: rgba(58,123,213,0.2) !important;
+    color: #EAF1F8 !important;
 }
 
 /* 분석 버튼 */
 [data-testid="stButton"] > button[kind="primary"] {
-    background: linear-gradient(135deg, #0EA5C9, #0284C7) !important;
+    background: #3A7BD5 !important;
     border: none !important;
-    border-radius: 12px !important;
-    color: white !important;
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 0.9rem !important;
-    letter-spacing: 0.04em !important;
-    padding: 0.7rem 1rem !important;
-    transition: all 0.2s ease !important;
-    box-shadow: 0 4px 20px rgba(14,165,201,0.35) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    font-family: 'DM Mono', monospace !important;
+    font-weight: 500 !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    padding: 0.75rem 1rem !important;
+    transition: background 0.15s, transform 0.1s !important;
+    box-shadow: 0 2px 16px rgba(58,123,213,0.3) !important;
+    margin-top: 0.5rem;
 }
 [data-testid="stButton"] > button[kind="primary"]:hover {
-    background: linear-gradient(135deg, #22D3EE, #0EA5C9) !important;
-    box-shadow: 0 6px 28px rgba(34,211,238,0.45) !important;
+    background: #2D68BE !important;
     transform: translateY(-1px) !important;
+    box-shadow: 0 4px 20px rgba(58,123,213,0.45) !important;
+}
+[data-testid="stButton"] > button[kind="primary"]:active {
+    transform: translateY(0) !important;
 }
 
-/* ── 메인 타이틀 영역 ── */
-.hero-section {
-    padding: 2.5rem 0 1.5rem;
-    position: relative;
+/* ── 메인 영역 타이틀 ── */
+.page-header {
+    padding: 2.8rem 0 2rem;
+    border-bottom: 1px solid #D8E2EC;
+    margin-bottom: 2rem;
 }
-.hero-eyebrow {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+.header-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #0EA5C9;
-    margin-bottom: 0.6rem;
+    color: #3A7BD5;
+    margin-bottom: 0.8rem;
 }
-.hero-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 800;
+.header-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: #0B1929;
+    letter-spacing: -1.2px;
     line-height: 1.1;
-    color: #F0F8FF;
-    letter-spacing: -1.5px;
     margin: 0 0 0.8rem;
 }
-.hero-title span {
-    background: linear-gradient(135deg, #22D3EE 30%, #0EA5C9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.header-title em {
+    font-style: normal;
+    color: #3A7BD5;
 }
-.hero-sub {
-    font-size: 0.95rem;
-    color: #7A9BB0;
-    line-height: 1.6;
-    max-width: 560px;
-}
-
-/* ── 물결 구분선 ── */
-.wave-divider {
-    margin: 1.5rem 0;
-    height: 2px;
-    background: linear-gradient(90deg, #0EA5C9, #22D3EE 40%, transparent);
-    border-radius: 2px;
+.header-desc {
+    font-size: 0.92rem;
+    color: #4A6680;
+    line-height: 1.65;
+    max-width: 500px;
+    font-weight: 400;
 }
 
-/* ── 지표 카드 ── */
-.metrics-row {
-    display: flex;
-    gap: 1rem;
-    margin: 1.5rem 0;
-}
-.metric-card {
-    flex: 1;
-    background: rgba(14,165,201,0.06);
-    border: 1px solid rgba(14,165,201,0.18);
-    border-radius: 16px;
-    padding: 1.2rem 1.4rem;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s;
-}
-.metric-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #0EA5C9, #22D3EE);
-}
-.metric-card:hover {
-    border-color: rgba(34,211,238,0.35);
-}
-.metric-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #5B8FA0;
-    margin-bottom: 0.4rem;
-}
-.metric-value {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: #E8F4FA;
-    line-height: 1;
-}
-.metric-unit {
-    font-size: 0.78rem;
-    color: #5B8FA0;
-    margin-top: 0.3rem;
-}
-
-/* ── 결과 카드 ── */
-.result-card {
-    border-radius: 20px;
-    padding: 2rem 2.2rem;
-    position: relative;
-    overflow: hidden;
-    margin-top: 1rem;
-}
-.result-card-safe {
-    background: linear-gradient(135deg, rgba(6,95,70,0.25), rgba(4,120,87,0.12));
-    border: 1px solid rgba(16,185,129,0.3);
-}
-.result-card-danger {
-    background: linear-gradient(135deg, rgba(127,29,29,0.3), rgba(153,27,27,0.12));
-    border: 1px solid rgba(239,68,68,0.3);
-}
-.result-card-mineral {
-    background: linear-gradient(135deg, rgba(30,58,138,0.3), rgba(37,99,235,0.12));
-    border: 1px solid rgba(96,165,250,0.3);
-}
-
-.result-badge {
-    display: inline-block;
-    padding: 0.3rem 0.9rem;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-}
-.badge-safe   { background: rgba(16,185,129,0.2); color: #34D399; border: 1px solid rgba(52,211,153,0.3); }
-.badge-danger { background: rgba(239,68,68,0.2);  color: #F87171; border: 1px solid rgba(248,113,113,0.3); }
-.badge-mineral{ background: rgba(96,165,250,0.2); color: #93C5FD; border: 1px solid rgba(147,197,253,0.3); }
-
-.result-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #F0F8FF;
-    margin: 0 0 0.5rem;
-    letter-spacing: -0.5px;
-}
-.result-desc {
-    font-size: 0.95rem;
-    color: #9BBFD0;
-    line-height: 1.7;
-    max-width: 620px;
-}
-
-/* 태그 리스트 */
-.tag-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.2rem;
-}
-.tag {
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-.tag-green  { background: rgba(16,185,129,0.15); color: #6EE7B7; }
-.tag-red    { background: rgba(239,68,68,0.15);  color: #FCA5A5; }
-.tag-blue   { background: rgba(96,165,250,0.15); color: #BFDBFE; }
-
-/* ── pH / 경도 경고 알림 카드 ── */
-.alert-row {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 1.2rem;
-}
-.alert-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.85rem;
-    background: rgba(251,191,36,0.07);
-    border: 1px solid rgba(251,191,36,0.25);
-    border-left: 3px solid #FBBF24;
-    border-radius: 10px;
-    padding: 0.85rem 1.1rem;
-}
-.alert-item.alert-high {
-    background: rgba(239,68,68,0.07);
-    border-color: rgba(239,68,68,0.25);
-    border-left-color: #EF4444;
-}
-.alert-item.alert-low {
-    background: rgba(139,92,246,0.07);
-    border-color: rgba(139,92,246,0.25);
-    border-left-color: #A78BFA;
-}
-.alert-icon {
-    font-size: 1.15rem;
-    line-height: 1.4;
-    flex-shrink: 0;
-}
-.alert-text strong {
-    display: block;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #F0F8FF !important;
-    margin-bottom: 0.15rem;
-}
-.alert-text span {
-    font-size: 0.8rem;
-    color: #9BBFD0 !important;
-    line-height: 1.5;
-}
-
-/* 빈 화면 가이드 */
-.guide-card {
-    background: rgba(14,165,201,0.05);
-    border: 1px dashed rgba(14,165,201,0.25);
-    border-radius: 16px;
-    padding: 2.5rem;
-    text-align: center;
-    margin-top: 1.5rem;
-}
-.guide-icon {
-    font-size: 3rem;
-    margin-bottom: 0.8rem;
-}
-.guide-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #C8DDE9;
-    margin-bottom: 0.5rem;
-}
-.guide-text {
-    font-size: 0.88rem;
-    color: #5B8FA0;
-    line-height: 1.6;
-}
-
-/* Streamlit 기본 요소 숨기기 / 오버라이드 */
-#MainMenu, footer, header { visibility: hidden; }
-
+/* ── 메트릭 패널 ── */
 [data-testid="stMetric"] {
-    background: rgba(14,165,201,0.06) !important;
-    border: 1px solid rgba(14,165,201,0.18) !important;
-    border-radius: 14px !important;
-    padding: 1rem 1.2rem !important;
+    background: #FFFFFF !important;
+    border: 1px solid #DDE7F0 !important;
+    border-radius: 12px !important;
+    padding: 1.1rem 1.3rem !important;
+    box-shadow: 0 1px 4px rgba(11,25,41,0.06) !important;
 }
 [data-testid="stMetricLabel"],
 [data-testid="stMetricLabel"] p {
-    color: #7A9BB0 !important;
-    font-size: 0.75rem !important;
+    font-family: 'DM Mono', monospace !important;
+    color: #7A97B2 !important;
+    font-size: 0.65rem !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
+    letter-spacing: 0.12em !important;
 }
 [data-testid="stMetricValue"],
 [data-testid="stMetricValue"] div {
-    color: #E8F4FA !important;
-    font-family: 'Syne', sans-serif !important;
+    color: #0B1929 !important;
+    font-family: 'DM Mono', monospace !important;
+    font-size: 1.55rem !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.5px !important;
 }
 [data-testid="stMetricDelta"],
-[data-testid="stMetricDelta"] div,
-[data-testid="stMetricDelta"] svg {
-    color: #22D3EE !important;
+[data-testid="stMetricDelta"] div {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.72rem !important;
+    color: #3A7BD5 !important;
 }
 
-/* 숫자 입력 화살표 버튼 배경 */
-[data-testid="stNumberInput"] button {
-    background: rgba(14,165,201,0.1) !important;
-    border-color: rgba(14,165,201,0.2) !important;
-    color: #E2EEF4 !important;
+/* ── 결과 카드 ── */
+.result-wrap {
+    margin-top: 2rem;
 }
-[data-testid="stNumberInput"] button:hover {
-    background: rgba(14,165,201,0.25) !important;
+.result-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 2rem 2.2rem 1.8rem;
+    border: 1px solid #DDE7F0;
+    box-shadow: 0 2px 12px rgba(11,25,41,0.06);
+    position: relative;
+    overflow: hidden;
+}
+.result-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+}
+.result-card-safe::before    { background: #22C55E; }
+.result-card-danger::before  { background: #EF4444; }
+.result-card-mineral::before { background: #3A7BD5; }
+
+.result-status-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.1rem;
+}
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.dot-safe    { background: #22C55E; box-shadow: 0 0 0 3px rgba(34,197,94,0.18); }
+.dot-danger  { background: #EF4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.18); }
+.dot-mineral { background: #3A7BD5; box-shadow: 0 0 0 3px rgba(58,123,213,0.18); }
+
+.status-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+.label-safe    { color: #16A34A; }
+.label-danger  { color: #DC2626; }
+.label-mineral { color: #2563EB; }
+
+.result-heading {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0B1929;
+    letter-spacing: -0.5px;
+    margin: 0 0 0.65rem;
+    line-height: 1.2;
+}
+.result-body {
+    font-size: 0.9rem;
+    color: #4A6680;
+    line-height: 1.75;
+    max-width: 640px;
+    margin: 0;
 }
 
-/* 구분선 */
-hr { border-color: rgba(14,165,201,0.15) !important; }
+/* 태그 */
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid #EEF3F8;
+}
+.tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+    font-weight: 400;
+}
+.tag-green   { background: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
+.tag-red     { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
+.tag-blue    { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
 
-/* 사이드바 구분선 */
-[data-testid="stSidebar"] hr { border-color: rgba(14,165,201,0.2) !important; }
+/* ── pH 스펙트럼 바 (시그니처 요소) ── */
+.ph-spectrum-wrap {
+    background: #FFFFFF;
+    border: 1px solid #DDE7F0;
+    border-radius: 16px;
+    padding: 1.6rem 1.8rem;
+    margin-top: 1.8rem;
+    box-shadow: 0 1px 4px rgba(11,25,41,0.05);
+}
+.spectrum-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7A97B2;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.spectrum-label span {
+    font-size: 0.85rem;
+    letter-spacing: -0.2px;
+    color: #0B1929 !important;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+}
+.ph-bar-track {
+    height: 14px;
+    border-radius: 7px;
+    background: linear-gradient(to right,
+        #EF4444 0%,
+        #F97316 10%,
+        #FACC15 20%,
+        #A3E635 30%,
+        #4ADE80 40%,
+        #22C55E 50%,
+        #34D399 55%,
+        #67E8F9 65%,
+        #60A5FA 75%,
+        #818CF8 85%,
+        #A855F7 100%
+    );
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+.ph-bar-pointer {
+    position: absolute;
+    top: -4px;
+    width: 22px;
+    height: 22px;
+    background: #FFFFFF;
+    border: 2.5px solid #0B1929;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 8px rgba(11,25,41,0.2);
+    transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.ph-bar-ticks {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0;
+    margin-top: 0.4rem;
+}
+.ph-tick {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: #9AB4C8;
+    text-align: center;
+}
+.ph-zone-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+}
+.ph-zone-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.ph-zone-acid   { color: #EF4444; }
+.ph-zone-normal { color: #22C55E; text-align: center; flex: 1; }
+.ph-zone-alka   { color: #818CF8; text-align: right; }
 
-/* 툴팁 */
-[data-testid="stTooltipIcon"] { color: #3B6F87 !important; }
+/* ── 경고 아이템 ── */
+.alert-section-header {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7A97B2;
+    margin: 2.2rem 0 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.alert-section-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #DDE7F0;
+}
+.alert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.alert-item {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr;
+    gap: 0;
+    background: #FFFFFF;
+    border: 1px solid #DDE7F0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(11,25,41,0.04);
+}
+.alert-stripe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+.stripe-warn   { background: #FFFBEB; border-right: 1px solid #FDE68A; }
+.stripe-danger { background: #FEF2F2; border-right: 1px solid #FECACA; }
+.stripe-info   { background: #EFF6FF; border-right: 1px solid #BFDBFE; }
+.alert-content {
+    padding: 0.75rem 1rem;
+}
+.alert-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #0B1929 !important;
+    margin-bottom: 0.2rem;
+}
+.alert-desc {
+    font-size: 0.78rem;
+    color: #4A6680 !important;
+    line-height: 1.55;
+}
 
-/* 스크롤바 */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #070F1C; }
-::-webkit-scrollbar-thumb { background: #1B3A50; border-radius: 3px; }
+/* ── 빈 화면 가이드 ── */
+.guide-panel {
+    background: #FFFFFF;
+    border: 1px dashed #C5D5E4;
+    border-radius: 16px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.guide-monogram {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    color: #9AB4C8;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+.guide-heading {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1E3448;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+}
+.guide-text {
+    font-size: 0.85rem;
+    color: #7A97B2;
+    line-height: 1.65;
+    max-width: 380px;
+    margin: 0 auto;
+}
+.guide-arrow {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3A7BD5;
+    border: 1px solid #BFDBFE;
+    border-radius: 4px;
+    padding: 0.3rem 0.8rem;
+    background: #EFF6FF;
+}
+
+/* 섹션 헤더 */
+.section-heading {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7A97B2;
+    margin: 0 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #DDE7F0;
+}
+
+/* 숨김 */
+#MainMenu, footer, header { visibility: hidden; }
+hr { border-color: #DDE7F0 !important; }
+[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.08) !important; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F2F5F8; }
+::-webkit-scrollbar-thumb { background: #C5D5E4; border-radius: 3px; }
+[data-testid="stTooltipIcon"] { color: #9AB4C8 !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -459,69 +576,51 @@ except FileNotFoundError:
 
 
 # ─────────────────────────────────────────────
-# 4. 사이드바 UI
+# 4. 사이드바
 # ─────────────────────────────────────────────
 with st.sidebar:
     st.markdown("""
     <div class="sidebar-brand">
-        <h1>💧 Water Mind</h1>
-        <p>수질 AI 분석 시스템</p>
+        <p class="sidebar-wordmark">수질 AI 분석 시스템</p>
+        <h1 class="sidebar-title">Water<br>Mind</h1>
+        <p class="sidebar-subtitle">K-Means 머신러닝 기반<br>실시간 수질 특성 분류</p>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+    st.markdown('<p class="sidebar-section-label">측정 데이터 입력</p>', unsafe_allow_html=True)
 
-    # 물 이미지
-    st.image(
-        "https://images.unsplash.com/photo-1548880338-7416bad859e4?q=80&w=400",
-        use_container_width=True,
-        output_format="auto"
-    )
+    ph       = st.number_input("pH  — 산성도",          min_value=0.0,  max_value=14.0,   value=7.0,    step=0.1,  help="식수 적합 기준: 6.5 ~ 8.5")
+    hardness = st.number_input("Hardness  — 경도",       min_value=0.0,  max_value=500.0,  value=150.0,  step=1.0,  help="칼슘·마그네슘 총량 (mg/L)")
+    solids   = st.number_input("Solids  — 총용존고형물", min_value=0.0,  max_value=5000.0, value=1000.0, step=10.0, help="용해된 유·무기 물질 총량 (ppm)")
 
-    st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
-    st.markdown("**측정 데이터 입력**")
-    st.caption("실측한 수질 수치를 아래에 입력하세요.")
-
-    ph       = st.number_input("pH  (산성도)",        min_value=0.0,  max_value=14.0,   value=7.0,    step=0.1,  help="6.5~8.5 사이가 식수 적합 기준")
-    hardness = st.number_input("경도  (Hardness)",     min_value=0.0,  max_value=500.0,  value=150.0,  step=1.0,  help="칼슘·마그네슘 총량 (mg/L)")
-    solids   = st.number_input("총용존고형물 (Solids)", min_value=0.0,  max_value=5000.0, value=1000.0, step=10.0, help="물에 녹아있는 유·무기 물질 총량 (ppm)")
-
-    st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
-    predict_btn = st.button("🔬  수질 분석하기", use_container_width=True, type="primary")
+    st.markdown("<div style='height:0.4rem'></div>", unsafe_allow_html=True)
+    predict_btn = st.button("분석 실행", use_container_width=True, type="primary")
 
     st.markdown("---")
-    st.markdown(
-        "<p style='font-size:0.72rem;color:#3B6F87;text-align:center;line-height:1.5'>"
-        "K-Means 머신러닝 기반<br>실시간 수질 특성 분류 시스템"
-        "</p>",
-        unsafe_allow_html=True
-    )
+    st.caption("입력값은 저장되지 않으며 분석은 즉시 수행됩니다.")
 
 
 # ─────────────────────────────────────────────
-# 5. 메인 대시보드
+# 5. 메인 영역
 # ─────────────────────────────────────────────
-
-# 히어로 타이틀
 st.markdown("""
-<div class="hero-section">
-    <p class="hero-eyebrow">AI-Powered Water Analysis</p>
-    <h1 class="hero-title">지금 이 물,<br><span>어떤 상태인가요?</span></h1>
-    <p class="hero-sub">
-        pH·경도·총용존고형물 세 가지 수치만 입력하면,
-        AI가 수질 특성을 즉시 분석해 드립니다.
+<div class="page-header">
+    <p class="header-eyebrow">Water Quality Analysis · AI-Powered</p>
+    <h1 class="header-title">지금 이 물,<br><em>어떤 상태인가요?</em></h1>
+    <p class="header-desc">
+        pH·경도·총용존고형물 세 수치를 입력하면
+        AI가 수질 유형을 즉시 분류하고 사용 가능 여부를 알려드립니다.
     </p>
 </div>
-<div class="wave-divider"></div>
 """, unsafe_allow_html=True)
 
 
 # ─────────────────────────────────────────────
-# 6. 예측 + 결과 렌더링
+# 6. 결과 렌더링
 # ─────────────────────────────────────────────
 if predict_btn:
 
-    # 데이터 전처리
+    # 전처리 & 예측
     new_water = pd.DataFrame(
         [[ph, hardness, solids]],
         columns=['pH(산성도)', '경도', '총용존고형물']
@@ -534,25 +633,64 @@ if predict_btn:
     new_water_scaled = scaler.transform(new_water)
     pred_cluster = model.predict(new_water_scaled)[0]
 
-    # ── 입력값 요약 카드 ──
-    st.markdown("#### 입력된 수질 데이터")
+    # 입력값 요약
+    st.markdown('<p class="section-heading">입력된 수질 데이터</p>', unsafe_allow_html=True)
     c1, c2, c3 = st.columns(3)
-    c1.metric("pH (산성도)",       f"{ph:.1f}",        delta="적합 범위 6.5 ~ 8.5")
-    c2.metric("경도",              f"{hardness:.0f} mg/L")
-    c3.metric("총용존고형물",       f"{solids:.0f} ppm")
+    c1.metric("pH — 산성도",    f"{ph:.1f}",          delta="기준 6.5 ~ 8.5")
+    c2.metric("경도 (mg/L)",    f"{hardness:.0f}")
+    c3.metric("총용존고형물 (ppm)", f"{solids:.0f}")
 
-    st.markdown("<div style='height:1.5rem'></div>", unsafe_allow_html=True)
-    st.markdown("#### 분석 결과")
+    # pH 스펙트럼 바 (시그니처)
+    ph_pct = (ph / 14.0) * 100
+    st.markdown(f"""
+    <div class="ph-spectrum-wrap">
+        <div class="spectrum-label">
+            pH 스펙트럼 위치
+            <span>{ph:.1f}</span>
+        </div>
+        <div class="ph-bar-track">
+            <div class="ph-bar-pointer" style="left:{ph_pct}%"></div>
+        </div>
+        <div class="ph-bar-ticks">
+            <span class="ph-tick">0</span>
+            <span class="ph-tick">1</span>
+            <span class="ph-tick">2</span>
+            <span class="ph-tick">3</span>
+            <span class="ph-tick">4</span>
+            <span class="ph-tick">5</span>
+            <span class="ph-tick">6</span>
+            <span class="ph-tick">7</span>
+            <span class="ph-tick">8</span>
+            <span class="ph-tick">9</span>
+            <span class="ph-tick">10</span>
+            <span class="ph-tick">11</span>
+            <span class="ph-tick">12</span>
+            <span class="ph-tick">13</span>
+            <span class="ph-tick">14</span>
+        </div>
+        <div class="ph-zone-labels">
+            <span class="ph-zone-label ph-zone-acid">산성</span>
+            <span class="ph-zone-label ph-zone-normal">중성 (식수 적합 구간)</span>
+            <span class="ph-zone-label ph-zone-alka">알칼리성</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    # ── 결과별 카드 렌더링 ──
+    # 분류 결과 카드
+    st.markdown('<div class="result-wrap">', unsafe_allow_html=True)
+    st.markdown('<p class="section-heading">분석 결과</p>', unsafe_allow_html=True)
+
     if pred_cluster == 2:
         st.markdown("""
         <div class="result-card result-card-safe">
-            <span class="result-badge badge-safe">✅ 양호한 수질</span>
-            <p class="result-title">균형 잡힌 깨끗한 물입니다</p>
-            <p class="result-desc">
+            <div class="result-status-row">
+                <span class="status-dot dot-safe"></span>
+                <span class="status-label label-safe">양호한 수질 — Cluster 2</span>
+            </div>
+            <p class="result-heading">균형 잡힌 깨끗한 물입니다</p>
+            <p class="result-body">
                 산성도·미네랄·고형물이 모두 고르게 분포된 수질입니다.
-                별도의 정수 처리 없이도 생활용수·식수로 적합하며,
+                별도의 정수 처리 없이도 생활용수와 식수로 적합하며,
                 일반 필터만으로도 충분한 정수 효율을 기대할 수 있습니다.
             </p>
             <div class="tag-row">
@@ -567,10 +705,13 @@ if predict_btn:
     elif pred_cluster == 0:
         st.markdown("""
         <div class="result-card result-card-danger">
-            <span class="result-badge badge-danger">⚠️ 주의 필요</span>
-            <p class="result-title">고형물이 지나치게 많은 물입니다</p>
-            <p class="result-desc">
-                물속에 녹아있는 총 고형물(Solids)이 기준치보다 높습니다.
+            <div class="result-status-row">
+                <span class="status-dot dot-danger"></span>
+                <span class="status-label label-danger">주의 필요 — Cluster 0</span>
+            </div>
+            <p class="result-heading">고형물이 지나치게 많은 물입니다</p>
+            <p class="result-body">
+                물속에 녹아있는 총 고형물(TDS)이 기준치보다 높습니다.
                 탁도가 높거나 텁텁한 맛이 날 수 있으며, 장기 음용은 권장하지 않습니다.
                 역삼투압(RO) 필터 등 정밀 고형물 제거 공정이 필요합니다.
             </p>
@@ -585,12 +726,15 @@ if predict_btn:
     else:
         st.markdown("""
         <div class="result-card result-card-mineral">
-            <span class="result-badge badge-mineral">💎 미네랄 풍부</span>
-            <p class="result-title">미네랄이 강한 센물(경수)입니다</p>
-            <p class="result-desc">
+            <div class="result-status-row">
+                <span class="status-dot dot-mineral"></span>
+                <span class="status-label label-mineral">미네랄 풍부 — Cluster 1</span>
+            </div>
+            <p class="result-heading">미네랄이 강한 센물(경수)입니다</p>
+            <p class="result-body">
                 칼슘·마그네슘 같은 미네랄 성분이 풍부한 경수입니다.
-                고형물 자체는 낮지만, 배관과 보일러에 물때(스케일)가 쌓일 수 있습니다.
-                미네랄 광천수로 활용하거나, 필요 시 연수기 설치를 고려해 보세요.
+                총 고형물 자체는 낮지만 배관과 보일러에 스케일이 쌓일 수 있습니다.
+                미네랄 광천수로 활용하거나, 필요 시 연수기 설치를 고려하세요.
             </p>
             <div class="tag-row">
                 <span class="tag tag-blue">미네랄 광천수</span>
@@ -600,56 +744,56 @@ if predict_btn:
         </div>
         """, unsafe_allow_html=True)
 
-    # ── pH / 경도 추가 경고 판정 ──
-    # pH 기준: 정상 6.5~8.5 / 주의 5.5~6.5 또는 8.5~9.5 / 위험 <5.5 또는 >9.5
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # pH / 경도 추가 경고
     ph_alerts = []
     if ph < 5.5:
-        ph_alerts.append(("high", "🔴", "pH 심각하게 낮음 (강산성)", f"입력값 {ph:.1f} — 기준치(6.5)보다 훨씬 낮습니다. 강한 산성으로 배관 부식 및 인체 자극을 유발할 수 있어 즉각적인 중화 처리가 필요합니다."))
+        ph_alerts.append(("danger", "🔴", "pH 심각하게 낮음 — 강산성", f"입력값 {ph:.1f} — 기준치(6.5)보다 훨씬 낮습니다. 배관 부식 및 인체 자극을 유발할 수 있어 즉각적인 중화 처리가 필요합니다."))
     elif ph < 6.5:
-        ph_alerts.append(("low", "🟡", "pH 낮음 (약산성)", f"입력값 {ph:.1f} — 식수 기준(6.5~8.5)보다 낮습니다. 장기 음용 시 치아 부식 가능성이 있으며, 중화 필터 사용을 권장합니다."))
+        ph_alerts.append(("warn", "🟡", "pH 낮음 — 약산성", f"입력값 {ph:.1f} — 식수 기준(6.5~8.5)보다 낮습니다. 장기 음용 시 치아 부식 가능성이 있으며, 중화 필터 사용을 권장합니다."))
     elif ph > 9.5:
-        ph_alerts.append(("high", "🔴", "pH 심각하게 높음 (강알칼리성)", f"입력값 {ph:.1f} — 기준치(8.5)를 크게 초과합니다. 강한 알칼리성으로 소화기 자극 및 미네랄 불균형을 유발할 수 있습니다."))
+        ph_alerts.append(("danger", "🔴", "pH 심각하게 높음 — 강알칼리성", f"입력값 {ph:.1f} — 기준치(8.5)를 크게 초과합니다. 소화기 자극 및 미네랄 불균형을 유발할 수 있습니다."))
     elif ph > 8.5:
-        ph_alerts.append(("low", "🟡", "pH 높음 (약알칼리성)", f"입력값 {ph:.1f} — 식수 기준(6.5~8.5)보다 높습니다. 쓴맛이 느껴질 수 있으며 장기 음용 시 주의가 필요합니다."))
+        ph_alerts.append(("warn", "🟡", "pH 높음 — 약알칼리성", f"입력값 {ph:.1f} — 식수 기준(6.5~8.5)보다 높습니다. 쓴맛이 느껴질 수 있으며 장기 음용 시 주의가 필요합니다."))
 
-    # 경도 기준: 정상 60~200 / 연수 <60 / 경수 200~400 / 과경수 >400
     hard_alerts = []
     if hardness < 30:
-        hard_alerts.append(("low", "🟣", "경도 매우 낮음 (극연수)", f"입력값 {hardness:.0f} mg/L — 미네랄이 거의 없는 증류수에 가까운 상태입니다. 장기 음용 시 칼슘·마그네슘 부족으로 이어질 수 있습니다."))
+        hard_alerts.append(("info", "🔵", "경도 매우 낮음 — 극연수", f"입력값 {hardness:.0f} mg/L — 미네랄이 거의 없는 증류수에 가까운 상태입니다. 장기 음용 시 칼슘·마그네슘 부족으로 이어질 수 있습니다."))
     elif hardness < 60:
-        hard_alerts.append(("low", "🟡", "경도 낮음 (연수)", f"입력값 {hardness:.0f} mg/L — 미네랄 함량이 적은 연수입니다. 음용에는 문제없으나 뼈 건강을 위해 식이 미네랄 보충을 권장합니다."))
+        hard_alerts.append(("warn", "🟡", "경도 낮음 — 연수", f"입력값 {hardness:.0f} mg/L — 미네랄 함량이 적은 연수입니다. 음용에는 문제없으나 뼈 건강을 위해 식이 미네랄 보충을 권장합니다."))
     elif hardness > 400:
-        hard_alerts.append(("high", "🔴", "경도 매우 높음 (과경수)", f"입력값 {hardness:.0f} mg/L — 칼슘·마그네슘이 지나치게 많습니다. 배관 스케일이 심하게 쌓이고 쓴맛·텁텁한 맛이 강하게 납니다. 연수기 또는 이온교환 필터가 필요합니다."))
+        hard_alerts.append(("danger", "🔴", "경도 매우 높음 — 과경수", f"입력값 {hardness:.0f} mg/L — 칼슘·마그네슘이 지나치게 많습니다. 배관 스케일이 심하게 쌓이며 쓴맛·텁텁한 맛이 납니다. 연수기 또는 이온교환 필터가 필요합니다."))
     elif hardness > 200:
-        hard_alerts.append(("low", "🟡", "경도 높음 (경수)", f"입력값 {hardness:.0f} mg/L — 미네랄 함량이 높은 경수입니다. 음용은 가능하나 보일러·커피머신 등 기기에 물때가 쌓일 수 있습니다."))
+        hard_alerts.append(("warn", "🟡", "경도 높음 — 경수", f"입력값 {hardness:.0f} mg/L — 미네랄 함량이 높은 경수입니다. 음용은 가능하나 보일러·커피머신 등 기기에 물때가 쌓일 수 있습니다."))
 
     all_alerts = ph_alerts + hard_alerts
-
     if all_alerts:
-        st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
-        st.markdown("#### 추가 항목별 진단")
-        alert_html = '<div class="alert-row">'
+        st.markdown('<p class="alert-section-header">추가 항목별 진단</p>', unsafe_allow_html=True)
+        alert_html = '<div class="alert-list">'
         for level, icon, title, desc in all_alerts:
-            css_class = f"alert-item alert-{'high' if level == 'high' else 'low'}"
+            stripe_class = f"stripe-{'danger' if level == 'danger' else 'info' if level == 'info' else 'warn'}"
             alert_html += f"""
-            <div class="{css_class}">
-                <span class="alert-icon">{icon}</span>
-                <div class="alert-text">
-                    <strong>{title}</strong>
-                    <span>{desc}</span>
+            <div class="alert-item">
+                <div class="alert-stripe {stripe_class}">{icon}</div>
+                <div class="alert-content">
+                    <p class="alert-title">{title}</p>
+                    <p class="alert-desc">{desc}</p>
                 </div>
             </div>"""
         alert_html += '</div>'
         st.markdown(alert_html, unsafe_allow_html=True)
 
-
+else:
+    # 빈 화면 가이드
     st.markdown("""
-    <div class="guide-card">
-        <div class="guide-icon">🔬</div>
-        <p class="guide-title">분석 준비 완료</p>
+    <div class="guide-panel">
+        <p class="guide-monogram">Water Mind · 수질 분석 대기 중</p>
+        <p class="guide-heading">측정값을 입력해 주세요</p>
         <p class="guide-text">
-            왼쪽 사이드바에서 pH, 경도, 총용존고형물 수치를 입력한 뒤<br>
-            <strong style="color:#22D3EE">「수질 분석하기」</strong> 버튼을 누르면 즉시 결과가 나타납니다.
+            왼쪽 사이드바에서 pH, 경도, 총용존고형물 수치를 입력한 뒤
+            「분석 실행」을 누르면 AI가 즉시 수질 유형을 분류합니다.
         </p>
+        <span class="guide-arrow">← 사이드바에서 값 입력</span>
     </div>
     """, unsafe_allow_html=True)
