@@ -77,15 +77,16 @@ html, body,
 /* 사이드바 브랜드 */
 .sb-brand {
     padding: 1.8rem 0 1.4rem;
-    border-bottom: 1px solid #1F2937;
+    border-bottom: 1px solid #374151;
     margin-bottom: 1.4rem;
 }
 .sb-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #3B82F6 !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: #93C5FD !important;
     margin: 0 0 0.4rem;
 }
 .sb-title {
@@ -98,19 +99,20 @@ html, body,
     line-height: 1.2;
 }
 .sb-desc {
-    font-size: 0.78rem;
-    color: #9CA3AF !important;
-    margin: 0.4rem 0 0;
-    line-height: 1.5;
+    font-size: 0.82rem;
+    color: #D1D5DB !important;
+    margin: 0.5rem 0 0;
+    line-height: 1.6;
 }
 
 /* 사이드바 섹션 라벨 */
 .sb-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #9CA3AF !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #E5E7EB !important;
     margin: 1.2rem 0 0.7rem;
 }
 
@@ -132,11 +134,11 @@ html, body,
 }
 [data-testid="stNumberInput"] label {
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.8rem !important;
+    font-size: 0.82rem !important;
     font-weight: 500 !important;
     letter-spacing: 0 !important;
     text-transform: none !important;
-    color: #9CA3AF !important;
+    color: #D1D5DB !important;
 }
 [data-testid="stNumberInput"] button {
     background: #1F2937 !important;
