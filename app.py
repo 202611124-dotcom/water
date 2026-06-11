@@ -27,7 +27,9 @@ html, body,
 [data-testid="stMain"],
 [data-testid="stMainBlockContainer"],
 .main, .block-container {
-    background-color: #F2F5F8 !important;
+    background-color: #EDF1F7 !important;
+    background-image: radial-gradient(circle, #C2CDD9 1px, transparent 1px) !important;
+    background-size: 24px 24px !important;
     font-family: 'DM Sans', sans-serif !important;
     color: #0B1929 !important;
 }
@@ -81,11 +83,11 @@ html, body,
 }
 .sidebar-wordmark {
     font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 400;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #3A7BD5 !important;
+    color: #5A9BEA !important;
     margin: 0 0 0.5rem;
 }
 .sidebar-title {
@@ -98,8 +100,8 @@ html, body,
     line-height: 1.2;
 }
 .sidebar-subtitle {
-    font-size: 0.78rem;
-    color: #3A5A78 !important;
+    font-size: 0.82rem;
+    color: #6A8FAA !important;
     margin: 0.35rem 0 0;
     line-height: 1.4;
 }
@@ -107,10 +109,10 @@ html, body,
 /* 사이드바 구분 헤더 */
 .sidebar-section-label {
     font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #2A4A60 !important;
+    color: #5A7A94 !important;
     margin: 1.4rem 0 0.8rem;
     display: flex;
     align-items: center;
@@ -141,11 +143,11 @@ html, body,
 }
 [data-testid="stNumberInput"] label {
     font-family: 'DM Mono', monospace !important;
-    font-size: 0.68rem !important;
+    font-size: 0.76rem !important;
     font-weight: 500 !important;
-    letter-spacing: 0.12em !important;
+    letter-spacing: 0.07em !important;
     text-transform: uppercase !important;
-    color: #3A5A78 !important;
+    color: #6A97B8 !important;
 }
 [data-testid="stNumberInput"] button {
     background: rgba(255,255,255,0.05) !important;
@@ -190,8 +192,8 @@ html, body,
 }
 .header-eyebrow {
     font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #3A7BD5;
     margin-bottom: 0.8rem;
@@ -210,8 +212,8 @@ html, body,
     color: #3A7BD5;
 }
 .header-desc {
-    font-size: 0.92rem;
-    color: #4A6680;
+    font-size: 0.95rem;
+    color: #2D4A62;
     line-height: 1.65;
     max-width: 500px;
     font-weight: 400;
@@ -228,10 +230,10 @@ html, body,
 [data-testid="stMetricLabel"],
 [data-testid="stMetricLabel"] p {
     font-family: 'DM Mono', monospace !important;
-    color: #7A97B2 !important;
-    font-size: 0.65rem !important;
+    color: #4A6A84 !important;
+    font-size: 0.76rem !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.12em !important;
+    letter-spacing: 0.07em !important;
 }
 [data-testid="stMetricValue"],
 [data-testid="stMetricValue"] div {
@@ -289,8 +291,8 @@ html, body,
 
 .status-label {
     font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.16em;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 .label-safe    { color: #16A34A; }
@@ -307,8 +309,8 @@ html, body,
     line-height: 1.2;
 }
 .result-body {
-    font-size: 0.9rem;
-    color: #4A6680;
+    font-size: 0.92rem;
+    color: #2D4A62;
     line-height: 1.75;
     max-width: 640px;
     margin: 0;
@@ -325,11 +327,11 @@ html, body,
 }
 .tag {
     font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    padding: 0.25rem 0.7rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    padding: 0.28rem 0.75rem;
     border-radius: 4px;
-    font-weight: 400;
+    font-weight: 500;
 }
 .tag-green   { background: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
 .tag-red     { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
@@ -346,17 +348,17 @@ html, body,
 }
 .spectrum-label {
     font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #7A97B2;
+    color: #3A6080;
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .spectrum-label span {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     letter-spacing: -0.2px;
     color: #0B1929 !important;
     font-family: 'DM Mono', monospace;
@@ -401,8 +403,8 @@ html, body,
 }
 .ph-tick {
     font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    color: #9AB4C8;
+    font-size: 0.68rem;
+    color: #5A7A94;
     text-align: center;
 }
 .ph-zone-labels {
@@ -412,8 +414,8 @@ html, body,
 }
 .ph-zone-label {
     font-family: 'DM Mono', monospace;
-    font-size: 0.58rem;
-    letter-spacing: 0.1em;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 .ph-zone-acid   { color: #EF4444; }
@@ -423,10 +425,10 @@ html, body,
 /* ── 경고 아이템 ── */
 .alert-section-header {
     font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #7A97B2;
+    color: #3A6080;
     margin: 2.2rem 0 0.9rem;
     display: flex;
     align-items: center;
@@ -467,14 +469,14 @@ html, body,
 }
 .alert-title {
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.83rem;
+    font-size: 0.87rem;
     font-weight: 600;
     color: #0B1929 !important;
     margin-bottom: 0.2rem;
 }
 .alert-desc {
-    font-size: 0.78rem;
-    color: #4A6680 !important;
+    font-size: 0.82rem;
+    color: #2D4A62 !important;
     line-height: 1.55;
 }
 
@@ -489,9 +491,9 @@ html, body,
 }
 .guide-monogram {
     font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.25em;
-    color: #9AB4C8;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: #5A7A94;
     text-transform: uppercase;
     margin-bottom: 1.2rem;
 }
@@ -504,8 +506,8 @@ html, body,
     letter-spacing: -0.3px;
 }
 .guide-text {
-    font-size: 0.85rem;
-    color: #7A97B2;
+    font-size: 0.88rem;
+    color: #3A5A74;
     line-height: 1.65;
     max-width: 380px;
     margin: 0 auto;
@@ -527,10 +529,10 @@ html, body,
 /* 섹션 헤더 */
 .section-heading {
     font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #7A97B2;
+    color: #3A6080;
     margin: 0 0 1rem;
     display: flex;
     align-items: center;
@@ -540,17 +542,17 @@ html, body,
     content: '';
     flex: 1;
     height: 1px;
-    background: #DDE7F0;
+    background: #C8D8E6;
 }
 
 /* 숨김 */
 #MainMenu, footer, header { visibility: hidden; }
-hr { border-color: #DDE7F0 !important; }
+hr { border-color: #C8D8E6 !important; }
 [data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.08) !important; }
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #F2F5F8; }
-::-webkit-scrollbar-thumb { background: #C5D5E4; border-radius: 3px; }
-[data-testid="stTooltipIcon"] { color: #9AB4C8 !important; }
+::-webkit-scrollbar-track { background: #EDF1F7; }
+::-webkit-scrollbar-thumb { background: #B0C4D4; border-radius: 3px; }
+[data-testid="stTooltipIcon"] { color: #7A97B2 !important; }
 </style>
 """, unsafe_allow_html=True)
 
