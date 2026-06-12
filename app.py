@@ -14,9 +14,6 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ═══════════════════════════════════════
-   BASE RESET
-═══════════════════════════════════════ */
 html, body,
 [data-testid="stAppViewContainer"],
 [data-testid="stAppViewContainer"] > section,
@@ -28,7 +25,6 @@ html, body,
     color: #111827 !important;
 }
 
-/* 전역 텍스트 색상 — 밝은 배경 위에서 확실한 대비 */
 [data-testid="stAppViewContainer"] p,
 [data-testid="stAppViewContainer"] span,
 [data-testid="stAppViewContainer"] div,
@@ -47,9 +43,6 @@ html, body,
     color: #111827 !important;
 }
 
-/* ═══════════════════════════════════════
-   SIDEBAR — 밝은 테마
-═══════════════════════════════════════ */
 [data-testid="stSidebar"],
 [data-testid="stSidebar"] > div,
 [data-testid="stSidebarContent"] {
@@ -57,7 +50,6 @@ html, body,
     border-right: 1px solid #E5E7EB !important;
 }
 
-/* 사이드바 내 모든 텍스트 — 어두운 색으로 */
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
 [data-testid="stSidebar"] div,
@@ -74,7 +66,6 @@ html, body,
     color: #6B7280 !important;
 }
 
-/* 사이드바 브랜드 */
 .sb-brand {
     padding: 1.8rem 0 1.4rem;
     border-bottom: 1px solid #E5E7EB;
@@ -85,7 +76,6 @@ html, body,
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.01em;
-    text-transform: none;
     color: #2563EB !important;
     margin: 0 0 0.4rem;
 }
@@ -105,18 +95,14 @@ html, body,
     line-height: 1.6;
 }
 
-/* 사이드바 섹션 라벨 */
 .sb-label {
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0;
-    text-transform: none;
     color: #111827 !important;
     margin: 1.2rem 0 0.7rem;
 }
 
-/* 입력 필드 */
 [data-testid="stNumberInput"] input {
     background: #F9FAFB !important;
     border: 1px solid #D1D5DB !important;
@@ -150,7 +136,6 @@ html, body,
     color: #111827 !important;
 }
 
-/* 분석 버튼 */
 [data-testid="stButton"] > button[kind="primary"] {
     background: #2563EB !important;
     border: none !important;
@@ -175,9 +160,6 @@ html, body,
     transform: translateY(0) !important;
 }
 
-/* ═══════════════════════════════════════
-   MAIN — PAGE HEADER
-═══════════════════════════════════════ */
 .page-header {
     padding: 2.5rem 0 1.8rem;
     border-bottom: 1px solid #E5E7EB;
@@ -210,9 +192,6 @@ html, body,
     max-width: 480px;
 }
 
-/* ═══════════════════════════════════════
-   METRIC CARDS
-═══════════════════════════════════════ */
 [data-testid="stMetric"] {
     background: #FFFFFF !important;
     border: 1px solid #E5E7EB !important;
@@ -244,9 +223,6 @@ html, body,
     color: #2563EB !important;
 }
 
-/* ═══════════════════════════════════════
-   SECTION LABEL
-═══════════════════════════════════════ */
 .sec-label {
     font-family: 'Inter', sans-serif;
     font-size: 0.78rem;
@@ -266,9 +242,6 @@ html, body,
     background: #E5E7EB;
 }
 
-/* ═══════════════════════════════════════
-   pH SPECTRUM BAR
-═══════════════════════════════════════ */
 .spectrum-card {
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
@@ -340,9 +313,6 @@ html, body,
 .zone-mid    { color: #16A34A; flex: 1; text-align: center; }
 .zone-alka   { color: #818CF8; }
 
-/* ═══════════════════════════════════════
-   RESULT CARD
-═══════════════════════════════════════ */
 .result-card {
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
@@ -363,6 +333,7 @@ html, body,
 .rc-safe::before    { background: #22C55E; }
 .rc-danger::before  { background: #EF4444; }
 .rc-mineral::before { background: #3B82F6; }
+.rc-warn::before    { background: #F59E0B; }
 
 .rc-badge {
     display: inline-flex;
@@ -378,6 +349,7 @@ html, body,
 .badge-safe    { background: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
 .badge-danger  { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
 .badge-mineral { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+.badge-warn    { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; }
 
 .rc-dot {
     width: 7px; height: 7px;
@@ -387,6 +359,7 @@ html, body,
 .dot-safe    { background: #22C55E; }
 .dot-danger  { background: #EF4444; }
 .dot-mineral { background: #3B82F6; }
+.dot-warn    { background: #F59E0B; }
 
 .rc-title {
     font-family: 'Inter', sans-serif;
@@ -422,49 +395,8 @@ html, body,
 .tag-g { background: #F0FDF4; color: #166534; border: 1px solid #D1FAE5; }
 .tag-r { background: #FEF2F2; color: #991B1B; border: 1px solid #FEE2E2; }
 .tag-b { background: #EFF6FF; color: #1E40AF; border: 1px solid #DBEAFE; }
+.tag-y { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; }
 
-/* ═══════════════════════════════════════
-   ALERT ITEMS
-═══════════════════════════════════════ */
-.alert-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-.alert-item {
-    background: #FFFFFF;
-    border: 1px solid #E5E7EB;
-    border-radius: 10px;
-    padding: 0.85rem 1rem 0.85rem 1.1rem;
-    display: flex;
-    gap: 0.85rem;
-    align-items: flex-start;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-    border-left-width: 3px;
-}
-.al-danger  { border-left-color: #EF4444; }
-.al-warn    { border-left-color: #F59E0B; }
-.al-info    { border-left-color: #3B82F6; }
-
-.al-icon { font-size: 1rem; line-height: 1.5; flex-shrink: 0; }
-.al-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.84rem;
-    font-weight: 600;
-    color: #111827 !important;
-    margin-bottom: 0.15rem;
-}
-.al-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    color: #4B5563 !important;
-    line-height: 1.55;
-}
-
-/* ═══════════════════════════════════════
-   EMPTY GUIDE
-═══════════════════════════════════════ */
 .guide-wrap {
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
@@ -511,9 +443,6 @@ html, body,
     padding: 0.3rem 0.75rem;
 }
 
-/* ═══════════════════════════════════════
-   MISC
-═══════════════════════════════════════ */
 #MainMenu, footer, header { visibility: hidden; }
 hr { border-color: #E5E7EB !important; }
 [data-testid="stSidebar"] hr { border-color: #E5E7EB !important; }
@@ -543,6 +472,129 @@ except FileNotFoundError:
     st.stop()
 
 
+# ─── 상태 분류 헬퍼 ───────────────────────────
+def get_ph_status(ph):
+    if ph < 5.5:   return "critical_low"
+    elif ph < 6.5: return "low"
+    elif ph > 9.5: return "critical_high"
+    elif ph > 8.5: return "high"
+    else:          return "normal"
+
+def get_hardness_status(h):
+    if h < 30:    return "very_soft"
+    elif h < 60:  return "soft"
+    elif h > 400: return "very_hard"
+    elif h > 200: return "hard"
+    else:         return "normal"
+
+def build_result(cluster, ph, hardness):
+    """
+    클러스터 + pH 상태 + 경도 상태를 종합해
+    (card_css, badge_css, dot_css, badge_label, title, body, tags) 반환
+    """
+    ps = get_ph_status(ph)
+    hs = get_hardness_status(hardness)
+
+    ph_ok      = ps == "normal"
+    hard_ok    = hs == "normal"
+    ph_danger  = ps in ("critical_low", "critical_high")
+    hard_danger= hs == "very_hard"
+    ph_warn    = ps in ("low", "high")
+    hard_warn  = hs in ("soft", "hard", "very_soft")
+
+    # ── pH 설명 조각 ──────────────────────────
+    ph_note = {
+        "critical_low":  f"pH {ph:.1f}로 강산성이라 배관 부식 및 인체 자극 위험이 있습니다.",
+        "low":           f"pH {ph:.1f}로 식수 기준(6.5)에 못 미치는 약산성입니다.",
+        "critical_high": f"pH {ph:.1f}로 강알칼리성이라 소화기 자극 및 미네랄 불균형을 유발할 수 있습니다.",
+        "high":          f"pH {ph:.1f}로 식수 기준(8.5)을 초과하는 약알칼리성입니다.",
+        "normal":        f"pH {ph:.1f}로 식수 기준(6.5~8.5) 범위 안에 있습니다.",
+    }[ps]
+
+    # ── 경도 설명 조각 ────────────────────────
+    hard_note = {
+        "very_soft": f"경도 {hardness:.0f} mg/L로 미네랄이 거의 없는 극연수입니다.",
+        "soft":      f"경도 {hardness:.0f} mg/L로 미네랄 함량이 낮은 연수입니다.",
+        "very_hard": f"경도 {hardness:.0f} mg/L로 칼슘·마그네슘이 과도한 극경수입니다.",
+        "hard":      f"경도 {hardness:.0f} mg/L로 미네랄 함량이 높은 경수입니다.",
+        "normal":    f"경도 {hardness:.0f} mg/L로 미네랄이 적절하게 함유되어 있습니다.",
+    }[hs]
+
+    # ── 클러스터별 기본 베이스 ────────────────
+    if cluster == 2:
+        # 고형물 기준 "양호"
+        if ph_ok and hard_ok:
+            return (
+                "rc-safe", "badge-safe", "dot-safe", "양호한 수질",
+                "세 가지 항목 모두 기준 범위 안입니다",
+                f"{ph_note} {hard_note} 총용존고형물도 기준치 이내로, 별도 정수 처리 없이 생활용수·식수로 사용할 수 있습니다.",
+                [("g","생활용수 적합"), ("g","식수 적합"), ("g","일반 필터로 충분"), ("g","안전성 높음")]
+            )
+        elif ph_danger or hard_danger:
+            return (
+                "rc-danger", "badge-danger", "dot-danger", "주의 필요",
+                "총용존고형물은 양호하나 다른 항목에 문제가 있습니다",
+                f"고형물 수준은 정상 범위이지만, {ph_note} 또한 {hard_note} 음용 전 해당 항목의 개선이 필요합니다.",
+                [("r","조건부 사용"), ("y","pH 조정 필요") if ph_danger else ("y","연수기 권장"), ("g","고형물 정상")]
+            )
+        else:
+            return (
+                "rc-warn", "badge-warn", "dot-warn", "부분적 주의",
+                "총용존고형물은 양호하나 일부 항목을 확인하세요",
+                f"고형물 수준은 적정하지만 {ph_note} 또한 {hard_note} 장기 음용 시 주의가 필요합니다.",
+                [("g","고형물 정상"), ("y","pH 확인 권장") if ph_warn else ("y","경도 확인 권장"), ("g","생활용수 적합")]
+            )
+
+    elif cluster == 0:
+        # 고형물 기준 "위험"
+        if ph_ok and hard_ok:
+            return (
+                "rc-danger", "badge-danger", "dot-danger", "주의 필요",
+                "고형물이 지나치게 많은 물입니다",
+                f"총용존고형물(TDS)이 기준치를 초과합니다. {ph_note} {hard_note} pH와 경도는 정상이지만 고형물이 많아 장기 음용은 권장하지 않으며, 역삼투압(RO) 필터 등 정밀 정수 처리가 필요합니다.",
+                [("r","식수 부적합"), ("r","RO 필터 필요"), ("y","공업용수 권장"), ("g","pH·경도 정상")]
+            )
+        elif ph_danger or hard_danger:
+            return (
+                "rc-danger", "badge-danger", "dot-danger", "복합적 문제",
+                "고형물 과다에 pH·경도 이상까지 복합 문제입니다",
+                f"총용존고형물이 기준치를 초과한 데다, {ph_note} 또한 {hard_note} 음용에 적합하지 않으며 전문적인 수처리 설비가 필요합니다.",
+                [("r","음용 금지"), ("r","전문 수처리 필요"), ("r","RO 필터 필요")]
+            )
+        else:
+            return (
+                "rc-danger", "badge-danger", "dot-danger", "주의 필요",
+                "고형물 과다에 경미한 pH·경도 이상이 동반됩니다",
+                f"총용존고형물이 기준치를 초과합니다. 추가로 {ph_note} 또한 {hard_note} 역삼투압(RO) 필터와 함께 pH 또는 경도 조정도 함께 고려하세요.",
+                [("r","식수 부적합"), ("r","RO 필터 필요"), ("y","복합 처리 권장")]
+            )
+
+    else:
+        # cluster == 1 — 고형물 낮음, 미네랄 풍부
+        if ph_ok and hard_ok:
+            return (
+                "rc-mineral", "badge-mineral", "dot-mineral", "미네랄 풍부",
+                "미네랄이 강한 센물(경수)입니다",
+                f"칼슘·마그네슘 같은 미네랄이 풍부한 경수입니다. {ph_note} {hard_note} 총용존고형물 자체는 낮지만 배관·보일러에 스케일이 쌓일 수 있으니 연수기 설치를 고려하세요.",
+                [("b","미네랄 광천수"), ("b","연수기 권장"), ("y","스케일 주의"), ("g","고형물 낮음")]
+            )
+        elif ph_danger:
+            return (
+                "rc-danger", "badge-danger", "dot-danger", "주의 필요",
+                "미네랄 풍부 + pH 이상이 동반됩니다",
+                f"미네랄 함량은 풍부하지만, {ph_note} {hard_note} pH 개선 후 용도에 맞게 사용하세요.",
+                [("r","pH 조정 필요"), ("b","미네랄 풍부"), ("y","스케일 주의"), ("g","고형물 낮음")]
+            )
+        else:
+            return (
+                "rc-mineral", "badge-mineral", "dot-mineral", "미네랄 풍부",
+                "미네랄이 강한 센물(경수)입니다",
+                f"칼슘·마그네슘이 풍부한 경수입니다. {ph_note} {hard_note} 배관·보일러 스케일에 유의하고 필요 시 연수기를 설치하세요.",
+                [("b","미네랄 광천수"), ("b","연수기 권장"), ("y","스케일 주의"),
+                 ("y","pH 확인 권장") if ph_warn else ("g","고형물 낮음")]
+            )
+
+
 # ─── 사이드바 ──────────────────────────────────
 with st.sidebar:
     st.markdown("""
@@ -563,7 +615,7 @@ with st.sidebar:
     predict_btn = st.button("분석 실행", use_container_width=True, type="primary")
 
     st.markdown("---")
-    st.caption("입력값은 저장되지 않으며 분석은 즉시 수행됩니다.")
+    st.caption("⚠ 모델은 총용존고형물 기준으로 클러스터를 분류합니다. pH·경도는 규칙 기반으로 별도 반영됩니다.")
 
 
 # ─── 메인 헤더 ────────────────────────────────
@@ -627,97 +679,25 @@ if predict_btn:
     </div>
     """, unsafe_allow_html=True)
 
-    # 분류 결과
+    # ── 통합 결과 카드 ─────────────────────────
     st.markdown("<div style='height:1.6rem'></div>", unsafe_allow_html=True)
     st.markdown('<p class="sec-label">분석 결과</p>', unsafe_allow_html=True)
 
-    if pred_cluster == 2:
-        st.markdown("""
-        <div class="result-card rc-safe">
-            <span class="rc-badge badge-safe"><span class="rc-dot dot-safe"></span>양호한 수질</span>
-            <p class="rc-title">균형 잡힌 깨끗한 물입니다</p>
-            <p class="rc-body">산성도·미네랄·고형물이 모두 고르게 분포된 수질입니다.
-            별도의 정수 처리 없이도 생활용수와 식수로 적합하며,
-            일반 필터만으로 충분한 정수 효율을 기대할 수 있습니다.</p>
-            <div class="tag-row">
-                <span class="tag tag-g">생활용수 적합</span>
-                <span class="tag tag-g">식수 적합</span>
-                <span class="tag tag-g">일반 필터로 충분</span>
-                <span class="tag tag-g">안전성 높음</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+    card_css, badge_css, dot_css, badge_label, title, body, tags = build_result(pred_cluster, ph, hardness)
 
-    elif pred_cluster == 0:
-        st.markdown("""
-        <div class="result-card rc-danger">
-            <span class="rc-badge badge-danger"><span class="rc-dot dot-danger"></span>주의 필요</span>
-            <p class="rc-title">고형물이 지나치게 많은 물입니다</p>
-            <p class="rc-body">물속에 녹아있는 총 고형물(TDS)이 기준치보다 높습니다.
-            탁도가 높거나 텁텁한 맛이 날 수 있으며, 장기 음용은 권장하지 않습니다.
-            역삼투압(RO) 필터 등 정밀 고형물 제거 공정이 필요합니다.</p>
-            <div class="tag-row">
-                <span class="tag tag-r">식수 부적합</span>
-                <span class="tag tag-r">공업용수 권장</span>
-                <span class="tag tag-r">RO 필터 필요</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+    tag_html = "".join(
+        f'<span class="tag tag-{color}">{label}</span>'
+        for color, label in tags
+    )
 
-    else:
-        st.markdown("""
-        <div class="result-card rc-mineral">
-            <span class="rc-badge badge-mineral"><span class="rc-dot dot-mineral"></span>미네랄 풍부</span>
-            <p class="rc-title">미네랄이 강한 센물(경수)입니다</p>
-            <p class="rc-body">칼슘·마그네슘 같은 미네랄 성분이 풍부한 경수입니다.
-            총 고형물 자체는 낮지만 배관과 보일러에 스케일이 쌓일 수 있습니다.
-            미네랄 광천수로 활용하거나 필요 시 연수기 설치를 고려하세요.</p>
-            <div class="tag-row">
-                <span class="tag tag-b">미네랄 광천수</span>
-                <span class="tag tag-b">연수기 권장</span>
-                <span class="tag tag-b">스케일 주의</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    # 추가 경고
-    ph_alerts = []
-    if ph < 5.5:
-        ph_alerts.append(("danger", "🔴", "pH 심각하게 낮음 — 강산성", f"입력값 {ph:.1f} · 기준치(6.5)보다 훨씬 낮습니다. 강한 산성으로 배관 부식 및 인체 자극을 유발할 수 있으며, 즉각적인 중화 처리가 필요합니다."))
-    elif ph < 6.5:
-        ph_alerts.append(("warn", "🟡", "pH 낮음 — 약산성", f"입력값 {ph:.1f} · 식수 기준(6.5~8.5)보다 낮습니다. 장기 음용 시 치아 부식 가능성이 있으며, 중화 필터 사용을 권장합니다."))
-    elif ph > 9.5:
-        ph_alerts.append(("danger", "🔴", "pH 심각하게 높음 — 강알칼리성", f"입력값 {ph:.1f} · 기준치(8.5)를 크게 초과합니다. 소화기 자극 및 미네랄 불균형을 유발할 수 있습니다."))
-    elif ph > 8.5:
-        ph_alerts.append(("warn", "🟡", "pH 높음 — 약알칼리성", f"입력값 {ph:.1f} · 식수 기준(6.5~8.5)보다 높습니다. 쓴맛이 느껴질 수 있으며 장기 음용 시 주의가 필요합니다."))
-
-    hard_alerts = []
-    if hardness < 30:
-        hard_alerts.append(("info", "🔵", "경도 매우 낮음 — 극연수", f"입력값 {hardness:.0f} mg/L · 미네랄이 거의 없는 증류수에 가까운 상태입니다. 장기 음용 시 칼슘·마그네슘 부족으로 이어질 수 있습니다."))
-    elif hardness < 60:
-        hard_alerts.append(("warn", "🟡", "경도 낮음 — 연수", f"입력값 {hardness:.0f} mg/L · 미네랄 함량이 적은 연수입니다. 음용에는 문제없으나 뼈 건강을 위해 식이 미네랄 보충을 권장합니다."))
-    elif hardness > 400:
-        hard_alerts.append(("danger", "🔴", "경도 매우 높음 — 과경수", f"입력값 {hardness:.0f} mg/L · 칼슘·마그네슘이 지나치게 많습니다. 배관 스케일이 심하게 쌓이며 쓴맛·텁텁한 맛이 납니다. 연수기 또는 이온교환 필터가 필요합니다."))
-    elif hardness > 200:
-        hard_alerts.append(("warn", "🟡", "경도 높음 — 경수", f"입력값 {hardness:.0f} mg/L · 미네랄 함량이 높은 경수입니다. 음용은 가능하나 보일러·커피머신 등 기기에 물때가 쌓일 수 있습니다."))
-
-    all_alerts = ph_alerts + hard_alerts
-    if all_alerts:
-        st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
-        st.markdown('<p class="sec-label">추가 항목별 진단</p>', unsafe_allow_html=True)
-        alert_html = '<div class="alert-list">'
-        for level, icon, title, desc in all_alerts:
-            css = f"al-{'danger' if level == 'danger' else 'info' if level == 'info' else 'warn'}"
-            alert_html += f"""
-            <div class="alert-item {css}">
-                <span class="al-icon">{icon}</span>
-                <div>
-                    <p class="al-title">{title}</p>
-                    <p class="al-desc">{desc}</p>
-                </div>
-            </div>"""
-        alert_html += '</div>'
-        st.markdown(alert_html, unsafe_allow_html=True)
+    st.markdown(f"""
+    <div class="result-card {card_css}">
+        <span class="rc-badge {badge_css}"><span class="rc-dot {dot_css}"></span>{badge_label}</span>
+        <p class="rc-title">{title}</p>
+        <p class="rc-body">{body}</p>
+        <div class="tag-row">{tag_html}</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 else:
     st.markdown("""
